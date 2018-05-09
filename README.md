@@ -10,7 +10,7 @@ React and Apollo client example with GitHub GraphQL API
 $ sed s/xxxx/<YOUR_ACCESS_TOKEN>/ src/config.default.js > src/config.js
 ```
 
-## Raunch
+## Launch
 ```bash
 $ yarn start
 ```

@@ -4,10 +4,9 @@ import { ApolloProvider } from 'react-apollo';
 import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import './App.css';
-import AppHeader from './AppHeader';
+import Profile from './Profile';
 import ACCESS_TOKEN from './config';
 
-console.log('ENV', process.env);
 const uri = 'https://api.github.com/graphql';
 const headers = { authorization: `Bearer ${ACCESS_TOKEN}` };
 
@@ -18,8 +17,8 @@ const client = new ApolloClient({ link, cache });
 
 const App = () => (
   <ApolloProvider client={client}>
-    <div className="App">
-      <AppHeader />
+    <div>
+      <Profile />
     </div>
   </ApolloProvider>
 );
