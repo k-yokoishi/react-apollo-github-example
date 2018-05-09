@@ -1,29 +1,25 @@
 import React from 'react';
-import { RaisedButton } from 'material-ui';
-import ApolloClient from 'apollo-boost';
+import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
-import gql from 'graphql-tag';
+import { createHttpLink } from 'apollo-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 import './App.css';
+import AppHeader from './AppHeader';
+import ACCESS_TOKEN from './config';
 
-const client = new ApolloClient({
-  uri: 'https://w5xlvm3vzz.lp.gql.zone/graphql'
-});
-client
-  .query({
-    query: gql`
-      {
-        rates(currency: "USD") {
-          currency
-        }
-      }
-    `
-  })
-  .then(console.log); // disable-eslint no-console
+console.log('ENV', process.env);
+const uri = 'https://api.github.com/graphql';
+const headers = { authorization: `Bearer ${ACCESS_TOKEN}` };
+
+const link = createHttpLink({ uri, headers });
+
+const cache = new InMemoryCache();
+const client = new ApolloClient({ link, cache });
 
 const App = () => (
   <ApolloProvider client={client}>
     <div className="App">
-      <RaisedButton label="Login" />
+      <AppHeader />
     </div>
   </ApolloProvider>
 );
