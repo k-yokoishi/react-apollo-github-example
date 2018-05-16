@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import { createHttpLink } from 'apollo-link-http';
@@ -17,9 +18,9 @@ const client = new ApolloClient({ link, cache });
 
 const App = () => (
   <ApolloProvider client={client}>
-    <div>
-      <Profile />
-    </div>
+    <Router>
+      <Route exact path="/" component={Profile} />
+    </Router>
   </ApolloProvider>
 );
 
