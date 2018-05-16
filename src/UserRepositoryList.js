@@ -12,6 +12,7 @@ const QUERY = gql`
           node {
             id
             name
+            nameWithOwner
             description
             languages(first: 1) {
               edges {
@@ -42,10 +43,11 @@ const UserRepositoryList = () => (
       return (
         <GridList cellHeight={180} style={style}>
           {data.viewer.repositories.edges.map(
-            ({ node: { id, name, description, languages } }) => (
+            ({ node: { id, name, nameWithOwner, description, languages } }) => (
               <GridTile key={id}>
                 <RepositoryItem
                   name={name}
+                  nameWithOwner={nameWithOwner}
                   description={description}
                   languages={languages}
                 />

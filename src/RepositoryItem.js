@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import FontIcon from 'material-ui/FontIcon';
 
@@ -6,9 +7,11 @@ const iconStyles = {
   marginRight: 10
 };
 
-const RepositoryItem = ({ name, description, languages }) => (
+const RepositoryItem = ({ name, nameWithOwner, description, languages }) => (
   <Card>
-    <CardHeader title={name} />
+    <CardHeader>
+      <Link to={nameWithOwner}>{name}</Link>
+    </CardHeader>
     <CardText>{description || '(None)'}</CardText>
     <p>
       <FontIcon
