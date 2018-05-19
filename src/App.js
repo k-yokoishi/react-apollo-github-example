@@ -6,6 +6,7 @@ import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import './App.css';
 import Profile from './Profile';
+import Repository from './Repository';
 import ACCESS_TOKEN from './config';
 
 const uri = 'https://api.github.com/graphql';
@@ -19,7 +20,10 @@ const client = new ApolloClient({ link, cache });
 const App = () => (
   <ApolloProvider client={client}>
     <Router>
-      <Route exact path="/" component={Profile} />
+      <div>
+        <Route exact path="/" component={Profile} />
+        <Route exact path="/repository/:owner/:name" component={Repository} />
+      </div>
     </Router>
   </ApolloProvider>
 );

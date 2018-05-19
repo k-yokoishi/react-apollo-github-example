@@ -10,7 +10,7 @@ const iconStyles = {
 const RepositoryItem = ({ name, nameWithOwner, description, languages }) => (
   <Card>
     <CardHeader>
-      <Link to={nameWithOwner}>{name}</Link>
+      <Link to={`repository/${nameWithOwner}`}>{name}</Link>
     </CardHeader>
     <CardText>{description || '(None)'}</CardText>
     <p>
