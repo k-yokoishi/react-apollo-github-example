@@ -42,18 +42,20 @@ const UserRepositoryList = () => (
       if (error) return <p>Error :(</p>;
       return (
         <GridList cellHeight={180} style={style}>
-          {data.viewer.repositories.edges.map(
-            ({ node: { id, name, nameWithOwner, description, languages } }) => (
-              <GridTile key={id}>
-                <RepositoryItem
-                  name={name}
-                  nameWithOwner={nameWithOwner}
-                  description={description}
-                  languages={languages}
-                />
-              </GridTile>
-            )
-          )}
+          {data.viewer.repositories.edges.map(({
+ node: {
+ id, name, nameWithOwner, description, languages
+}
+}) => (
+  <GridTile key={id}>
+    <RepositoryItem
+      name={name}
+      nameWithOwner={nameWithOwner}
+      description={description}
+      languages={languages}
+    />
+  </GridTile>
+            ))}
         </GridList>
       );
     }}
