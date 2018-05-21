@@ -27,7 +27,7 @@
     "react-router-dom": "^4.2.2"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": ["prettier-eslint --single-quote --write", "git add"]
+    "src/**/*.{js,jsx,json,css}": ["prettier-eslint --single-quote --write", "eslint", "git add"]
   },
   "scripts": {
     "start": "react-scripts start",
