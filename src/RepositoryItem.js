@@ -12,7 +12,7 @@ const RepositoryItem = ({
 }) => (
   <Card>
     <CardHeader>
-      <Link to={`repository/${nameWithOwner}`}>{name}</Link>
+      <Link to={`/${nameWithOwner}`}>{name}</Link>
     </CardHeader>
     <CardText>{description || '(None)'}</CardText>
     <p>

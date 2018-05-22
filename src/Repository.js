@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Query, Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const QUERY = gql`
   query repository($owner: String!, $name: String!) {
@@ -54,9 +56,7 @@ const Repository = ({
 } = data.repository;
       return (
         <div>
-          <p>{name}</p>
-          <p>{description}</p>
-          <p>Star {stargazers.totalCount}</p>
+          <Link to={`/${owner}`}>{owner}</Link> / <Link to={`/${owner}/${name}`}>{name}</Link>
           {!viewerHasStarred ? (
             <Mutation
               mutation={ADD_STAR}
@@ -70,14 +70,14 @@ const Repository = ({
               }}
             >
               {addStar => (
-                <button
+                <RaisedButton
                   onClick={(e) => {
                     e.preventDefault();
                     addStar({ variables: { input: { starrableId: id } } });
                   }}
                 >
                   Star
-                </button>
+                </RaisedButton>
               )}
             </Mutation>
           ) : (
@@ -93,18 +93,19 @@ const Repository = ({
               }}
             >
               {removeStar => (
-                <button
+                <RaisedButton
                   onClick={(e) => {
                     e.preventDefault();
                     removeStar({ variables: { input: { starrableId: id } } });
                   }}
                 >
                   Unstar
-                </button>
+                </RaisedButton>
               )}
             </Mutation>
           )}
-          <p>{id}</p>
+          {stargazers.totalCount}
+          <p>{description}</p>
         </div>
       );
     }}
