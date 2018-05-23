@@ -12,6 +12,7 @@
     "lint-staged": "^7.0.5",
     "prettier": "^1.12.1",
     "prettier-eslint-cli": "^4.7.1",
+    "puppeteer": "^1.4.0",
     "react-scripts": "1.1.4"
   },
   "dependencies": {
@@ -27,7 +28,11 @@
     "react-router-dom": "^4.2.2"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": ["prettier-eslint --single-quote --write", "eslint", "git add"]
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier-eslint --single-quote --write",
+      "eslint",
+      "git add"
+    ]
   },
   "scripts": {
     "start": "react-scripts start",
