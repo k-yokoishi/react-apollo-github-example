@@ -7,10 +7,9 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import './App.css';
 import Profile from './Profile';
 import Repository from './Repository';
-import ACCESS_TOKEN from './config';
 
 const uri = 'https://api.github.com/graphql';
-const headers = { authorization: `Bearer ${ACCESS_TOKEN}` };
+const headers = { authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}` };
 
 const link = createHttpLink({ uri, headers });
 
