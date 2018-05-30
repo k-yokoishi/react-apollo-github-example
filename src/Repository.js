@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Query, Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from '@material-ui/core/Button';
 
 const QUERY = gql`
   query repository($owner: String!, $name: String!) {
@@ -70,14 +70,16 @@ const Repository = ({
               }}
             >
               {addStar => (
-                <RaisedButton
+                <Button
+                  variant="raised"
+                  color="primary"
                   onClick={(e) => {
                     e.preventDefault();
                     addStar({ variables: { input: { starrableId: id } } });
                   }}
                 >
                   Star
-                </RaisedButton>
+                </Button>
               )}
             </Mutation>
           ) : (
@@ -93,14 +95,16 @@ const Repository = ({
               }}
             >
               {removeStar => (
-                <RaisedButton
+                <Button
+                  variant="raised"
+                  color="primary"
                   onClick={(e) => {
                     e.preventDefault();
                     removeStar({ variables: { input: { starrableId: id } } });
                   }}
                 >
                   Unstar
-                </RaisedButton>
+                </Button>
               )}
             </Mutation>
           )}

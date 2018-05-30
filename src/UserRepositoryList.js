@@ -1,5 +1,6 @@
 import React from 'react';
-import { GridList, GridTile } from 'material-ui/GridList';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import RepositoryItem from './RepositoryItem';
@@ -47,14 +48,14 @@ const UserRepositoryList = () => (
  id, name, nameWithOwner, description, languages
 }
 }) => (
-  <GridTile key={id}>
+  <GridListTile key={id}>
     <RepositoryItem
       name={name}
       nameWithOwner={nameWithOwner}
       description={description}
       languages={languages}
     />
-  </GridTile>
+  </GridListTile>
             ))}
         </GridList>
       );
