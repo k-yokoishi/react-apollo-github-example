@@ -5,6 +5,7 @@ import { ApolloProvider } from 'react-apollo';
 import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import './App.css';
+import AppHeader from './AppHeader';
 import Profile from './Profile';
 import Repository from './Repository';
 
@@ -20,6 +21,7 @@ const App = () => (
   <ApolloProvider client={client}>
     <Router>
       <div>
+        <AppHeader />
         <Route exact path="/" component={Profile} />
         <Route exact path="/:owner/:name" component={Repository} />
       </div>
