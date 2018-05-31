@@ -33,7 +33,8 @@ const QUERY = gql`
 const style = {
   width: 700,
   height: 450,
-  overflowY: 'auto'
+  overflowY: 'auto',
+  margin: 'auto'
 };
 
 const UserRepositoryList = () => (
@@ -42,8 +43,10 @@ const UserRepositoryList = () => (
       if (loading) return <p>Loading...</p>;
       if (error) return <p>Error :(</p>;
       return (
-        <GridList cellHeight={180} style={style}>
-          {data.viewer.repositories.edges.map(({
+        <div>
+          <h2>Popular repositories</h2>
+          <GridList cellHeight={180} style={style}>
+            {data.viewer.repositories.edges.map(({
  node: {
  id, name, nameWithOwner, description, languages
 }
@@ -56,8 +59,9 @@ const UserRepositoryList = () => (
       languages={languages}
     />
   </GridListTile>
-            ))}
-        </GridList>
+              ))}
+          </GridList>
+        </div>
       );
     }}
   </Query>

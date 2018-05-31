@@ -10,7 +10,7 @@ const AppHeader = () => (
       <Typography variant="title">
         <img src="https://assets-cdn.github.com/favicon.ico" alt="avatar" />
       </Typography>
-      <TextField label="Repository" margin="normal" />
+      <TextField label="Repository" style={{ margin: 'auto 10px' }} />
     </Toolbar>
   </AppBar>
 );

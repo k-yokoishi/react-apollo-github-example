@@ -29,7 +29,7 @@
     "react-router-dom": "^4.2.2"
   },
   "lint-staged": {
-    "{src,cypress}/**/*.{js,jsx,json,css}": [
+    "{src,cypress}/**/*.{js,jsx,json}": [
       "prettier-eslint --single-quote --write",
       "eslint",
       "git add"
