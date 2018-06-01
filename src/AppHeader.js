@@ -1,8 +1,8 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
-import TextField from '@material-ui/core/TextField';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import SearchForm from './SearchForm';
 
 const AppHeader = () => (
   <AppBar position="static" color="inherit">
@@ -10,7 +10,7 @@ const AppHeader = () => (
       <Typography variant="title">
         <img src="https://assets-cdn.github.com/favicon.ico" alt="avatar" />
       </Typography>
-      <TextField label="Repository" style={{ margin: 'auto 10px' }} />
+      <SearchForm style={{ margin: 'auto 10px' }} />
     </Toolbar>
   </AppBar>
 );
