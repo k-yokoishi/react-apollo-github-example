@@ -10,7 +10,7 @@
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
-    "husky": "^0.14.3",
+    "husky": "next",
     "lint-staged": "^7.0.5",
     "prettier": "^1.12.1",
     "prettier-eslint-cli": "^4.7.1",
@@ -29,11 +29,7 @@
     "react-router-dom": "^4.2.2"
   },
   "lint-staged": {
-    "{src,cypress}/**/*.{js,jsx,json}": [
-      "prettier-eslint --single-quote --write",
-      "eslint",
-      "git add"
-    ]
+    "{src,cypress}/**/*.js": ["prettier-eslint --single-quote --write", "eslint", "git add"]
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,7 +37,13 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
-    "cypress": "cypress open",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "format": "prettier-eslint {src,cypress}/**/*.js --single-quote --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn cypress:run"
+    }
   }
 }
