@@ -4,9 +4,9 @@ import Avatar from './Avatar';
 import UserRepositoryList from './UserRepositoryList';
 
 const Profile = () => (
-  <Grid container justify="center" style={{ marginTop: '3rem' }}>
+  <Grid container>
     <Grid item>
-      <Grid container justify="center" spacing={32}>
+      <Grid container spacing={32}>
         <Grid item>
           <Avatar />
         </Grid>

@@ -34,3 +34,8 @@
 .material-icons {
   vertical-align: bottom;
 }
+
+.main {
+  margin: 15px auto;
+  width: 1000px;
+}

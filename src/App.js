@@ -22,8 +22,10 @@ const App = () => (
     <Router>
       <div>
         <AppHeader />
-        <Route exact path="/" component={Profile} />
-        <Route exact path="/:owner/:name" component={Repository} />
+        <div className="main">
+          <Route exact path="/" component={Profile} />
+          <Route exact path="/:owner/:name" component={Repository} />
+        </div>
       </div>
     </Router>
   </ApolloProvider>
