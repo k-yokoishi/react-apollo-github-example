@@ -43,8 +43,7 @@ class SearchForm extends React.Component {
                   })
                   .then(({ data }) => {
                     const { nodes } = data.search;
-                    this.setState({ foundRepositories: nodes });
-                    this.setState({ suggestionOpen: nodes.length > 0 });
+                    this.setState({ foundRepositories: nodes, suggestionOpen: nodes.length > 0 });
                   });
               }}
               style={this.props.style}
@@ -52,10 +51,14 @@ class SearchForm extends React.Component {
           )}
         </ApolloConsumer>
         {this.state.suggestionOpen && (
-          <div>
+          <div style={{ height: '0' }}>
             {this.state.foundRepositories.map(repository => (
               <MenuItem onClick={this.handleClose} key={repository.id}>
-                <Link key={repository.id} to={`/${repository.nameWithOwner}`}>
+                <Link
+                  key={repository.id}
+                  to={`/${repository.nameWithOwner}`}
+                  onClick={() => this.setState({ suggestionOpen: false })}
+                >
                   {repository.nameWithOwner}
                 </Link>
               </MenuItem>
